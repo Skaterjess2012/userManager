@@ -8,7 +8,8 @@ html
                 th Age
             each user in users
                 tr
-                    td #{user.userid}
+                    td #{user.uid}
                     td #{user.name}
                     td #{user.email}
                     td #{user.age}
+    a(href="localhost:3000/userEdit") click me!

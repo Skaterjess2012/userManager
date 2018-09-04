@@ -20,7 +20,7 @@ app.post('/userListing', (req, res) => {
 
         let jsonData = JSON.parse(data);
         let usrObj = {
-            userid: req.body.userid,
+            uid: req.body.uid,
             name: req.body.name,
             email: req.body.email,
             age: req.body.age
@@ -30,6 +30,17 @@ app.post('/userListing', (req, res) => {
         res.render('userListing', {users: jsonData.users});
 
         fs.writeFile(jsonFile, JSON.stringify(jsonData), 'utf8', err => console.log(err));
+    });
+});
+
+app.get('/userEdit', (req, res) => {
+    fs.readFile(jsonFile, 'utf8', (err, data) => {
+        if (err) console.log(err);
+
+        let jsonData = JSON.parse(data);
+
+        res.render('userEdit', {users: jsonData.users});
+        // fs.writeFile(jsonFile, JSON.stringify(jsonData), 'utf8', err => console.log(err));
     });
 });
 

@@ -1,0 +1,20 @@
+html
+    body
+        form(action="/userListing" method="post")
+            table
+                tr
+                th User ID
+                th Name
+                th Email
+                th Age
+                each user, index in users
+                    tr
+                        td
+                            input(placeholder="UserID" type="text" name="uid " + index id="r1-c" + index value=user.uid)
+                        td
+                            input(placeholder="Name" type="text" name="uid " + index id="r1-c" + index value=user.name)
+                        td
+                            input(placeholder="Email" type="text" name="uid " + index id="r1-c" + index value=user.email)
+                        td
+                            input(placeholder="Age" type="text" name="uid " + index id="r1-c" + index value=user.age)
+            input(type="submit")
