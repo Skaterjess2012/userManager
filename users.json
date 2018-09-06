@@ -1,1 +1,1 @@
-{"users":[{"uid":"1234","name":"Jesse","email":"some email","age":"19"}]}
+{"users":[{"uid":"1234","name":"Jesse","email":"jesse@mail.com","age":"19","delete":null},{"uid":"1234","name":"fredo","email":"fredo@mail.com","age":"21","delete":null}]}

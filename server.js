@@ -13,7 +13,6 @@ app.use('/', express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-
 app.post('/userListing', (req, res) => {
     fs.readFile(jsonFile, 'utf8', (err, data) => {
         if (err) console.log(err);
@@ -23,7 +22,8 @@ app.post('/userListing', (req, res) => {
             uid: req.body.uid,
             name: req.body.name,
             email: req.body.email,
-            age: req.body.age
+            age: req.body.age,
+            delete: null
         }
 
         jsonData.users.push(usrObj);
@@ -33,14 +33,38 @@ app.post('/userListing', (req, res) => {
     });
 });
 
+app.get('/userListing', (req, res) => {
+  fs.readFile(jsonFile, 'utf8', (err, data) => {
+    if (err) console.log(err);
+
+    let jsonData = JSON.parse(data);
+    res.render('userListing', {users: jsonData.users});
+  })
+});
+
+app.post('/userEditSubmit', (req, res) => {
+  fs.readFile(jsonFile, 'utf8', (err, data) => {
+    if (err) console.log(err);
+
+    let jsonData = JSON.parse(data);
+    let editedUsers = [];
+    console.log('////////////////////');
+    console.log(req.body);
+    // jsonData.users = editedUsers;
+    res.render('userListing', {users: jsonData.users});
+
+    // fs.writeFile(jsonFile, JSON.stringify(jsonData), 'utf8', err => console.log(err));
+
+  });
+});
+
 app.get('/userEdit', (req, res) => {
     fs.readFile(jsonFile, 'utf8', (err, data) => {
         if (err) console.log(err);
 
         let jsonData = JSON.parse(data);
-
         res.render('userEdit', {users: jsonData.users});
-        // fs.writeFile(jsonFile, JSON.stringify(jsonData), 'utf8', err => console.log(err));
+
     });
 });
 

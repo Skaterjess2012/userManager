@@ -1,6 +1,6 @@
 html
     body
-        form(action="/userListing" method="post")
+        form(action="/userEditSubmit" method="post")
             table
                 tr
                 th User ID
@@ -10,11 +10,14 @@ html
                 each user, index in users
                     tr
                         td
-                            input(placeholder="UserID" type="text" name="uid " + index id="r1-c" + index value=user.uid)
+                            input(placeholder="UserID" type="text" name="user" + index value=user.uid)
                         td
-                            input(placeholder="Name" type="text" name="uid " + index id="r1-c" + index value=user.name)
+                            input(placeholder="Name" type="text" name="user" + index value=user.name)
                         td
-                            input(placeholder="Email" type="text" name="uid " + index id="r1-c" + index value=user.email)
+                            input(placeholder="Email" type="text" name="user" + index value=user.email)
                         td
-                            input(placeholder="Age" type="text" name="uid " + index id="r1-c" + index value=user.age)
+                            input(placeholder="Age" type="text" name="user" + index value=user.age)
+                        td
+                            input( type="checkbox" name="user" + index)
             input(type="submit")
+            a(href="/userListing") Cancel
