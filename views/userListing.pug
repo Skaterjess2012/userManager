@@ -6,10 +6,12 @@ html
                 th Name
                 th Email
                 th Age
-            each user in users
+            each user, index in users
                 tr
-                    td #{user.uid}
+                    td #{user.id}
                     td #{user.name}
                     td #{user.email}
                     td #{user.age}
-    a(href="/userEdit") Edit
+                    td
+                        a(href="/edit/"+user.uid) Edit
+                        a(href="/delete/"+user.uid) Delete

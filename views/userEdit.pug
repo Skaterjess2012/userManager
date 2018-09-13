@@ -10,14 +10,15 @@ html
                 each user, index in users
                     tr
                         td
-                            input(placeholder="UserID" type="text" name="user" + index value=user.uid)
+                            input(placeholder="UserID" type="text" name="uid" value=user.uid)
                         td
-                            input(placeholder="Name" type="text" name="user" + index value=user.name)
+                            input(placeholder="Name" type="text" name="name" value=user.name)
                         td
-                            input(placeholder="Email" type="text" name="user" + index value=user.email)
+                            input(placeholder="Email" type="text" name="email" value=user.email)
                         td
-                            input(placeholder="Age" type="text" name="user" + index value=user.age)
+                            input(placeholder="Age" type="text" name="age" value=user.age)
                         td
-                            input( type="checkbox" name="user" + index)
+                            form(action="/delete" method="post")
+                                input
             input(type="submit")
             a(href="/userListing") Cancel
